@@ -1,5 +1,5 @@
+
 fun main() {
-    val calc = Calculator()
     val input_num1 = print("숫자:")
     val num1 = readLine()!!.toInt()
 
@@ -9,19 +9,22 @@ fun main() {
     val input_num2 = print("숫자:")
     val num2 = readLine()!!.toInt()
 
-
     when (operator) {
         "+" -> {
-            println("$num1 + $num2 결과는 : ${calc.addOperation(AddOperation(), num1, num2)}입니다.")
+            val add = Calculator(AddOperation()).operate(num1,num2)
+            println("$num1 + $num2 결과는 : ${add}입니다.")
         }
         "-" -> {
-            println("$num1 - $num2 결과는 : ${calc.substractOperation(SubstractOperation(), num1, num2)}입니다.")
+            val sb = Calculator(SubstractOperation()).operate(num1,num2)
+            println("$num1 - $num2 결과는 : ${sb}입니다.")
         }
         "*" -> {
-            println("$num1 × $num2 결과는 : ${calc.multiplyOperation(MultiplyOperation(), num1, num2)}입니다.")
+            val mp = Calculator(MultiplyOperation()).operate(num1,num2)
+            println("$num1 × $num2 결과는 : ${mp}입니다.")
         }
         "/" -> {
-            println("$num1 ÷ $num2 결과는 : ${calc.divideOperation(DivideOperation(), num1, num2)}입니다.")
+            val dv = Calculator(DivideOperation()).operate(num1,num2)
+            println("$num1 ÷ $num2 결과는 : ${dv}입니다.")
         }
     }
 }
